@@ -27,5 +27,9 @@ public class PetController {
         return petService.retornarPetShop();
     }
 
+    @GetMapping("/{nome}")
+    public PetDTO pesquisarPetPeloNome(@PathVariable String nome){
+        return petService.pesquisarPetPeloNome(nome);
+    }
 
 }
