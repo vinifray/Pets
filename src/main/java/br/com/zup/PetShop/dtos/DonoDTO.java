@@ -5,14 +5,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class DonoDTO {
-    @Size(min = 3, message = "Nome tem que ter pelo menos 3 letras")
+    @Size(min = 2, message = "{validacao.nome}")
     private String nome;
 
-    @Email(message = "Formato de email invalido")
-    @NotBlank(message = "Email é obrigatório")
+    @Email(message = "{validacao.email}")
+    @NotBlank(message = "{validacao.email.obrigatorio}")
     private String email;
 
-    @Size(min = 10, max = 11, message = "Telefone tem que ser no minimo 10 numero ou no maximo 11")
+    @Size(min = 10, max = 11, message = "{validacao.telefone}")
     private String telefone;
 
     public DonoDTO() {

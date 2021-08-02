@@ -9,9 +9,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class PetDTO {
-    @Size(min = 2, message = "Nome do pet tem que ter no minimo 2 letras")
+    @Size(min = 2, message = "{validacao.nome}" )
     private String nome;
-    @Min(value = 1, message = "Nós não atendemos animais com menos de 1 ano")
+    @Min(value = 1, message = "{validacao.idade}")
     private int idade;
 
     @NotNull

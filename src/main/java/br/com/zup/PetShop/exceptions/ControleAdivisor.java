@@ -22,7 +22,7 @@ public class ControleAdivisor {
         Converte a lista de fildEerros para erros que é a classe customisada que criamos
         Para conversão usamos o Stream para manipular os objetos da lista e o lambida (->)
          */
-        List<Erro> erros = fildErros.stream().map(objeto -> new Erro(objeto.getDefaultMessage()))
+        List<Erro> erros = fildErros.stream().map(objeto -> new Erro(objeto.getField(), objeto.getDefaultMessage()))
                 .collect(Collectors.toList());
 
         return new MensagemDeErro(400, erros);
@@ -33,7 +33,7 @@ public class ControleAdivisor {
      */
     @ExceptionHandler(PetNaoEncontradoException.class)
     public MensagemDeErro manipularPetNaoEncontrato(PetNaoEncontradoException exception){
-        List<Erro> erros = Arrays.asList(new Erro(exception.getMessage()));
+        List<Erro> erros = Arrays.asList(new Erro(exception.getLocalizedMessage(), exception.getMessage()));
 
         return new MensagemDeErro(400, erros);
     }
