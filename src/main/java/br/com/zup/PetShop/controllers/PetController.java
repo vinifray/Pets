@@ -34,6 +34,6 @@ public class PetController {
 
     @PutMapping
     public PetDTO ataualizarOuRegistrarPet(@RequestBody @Valid PetDTO petDTO){
-        return petService.ataulizarOuAdicinarPet(petDTO);
+        return petService.atualizarOuAdicionarPet(petDTO);
     }
 }

@@ -43,7 +43,7 @@ public class PetService {
         return objetoParaAtualizar;
     }
 
-    public PetDTO ataulizarOuAdicinarPet(PetDTO petDTO){
+    public PetDTO atualizarOuAdicionarPet(PetDTO petDTO){
         try{
             PetDTO objetoDaLista = pesquisarPetPeloNome(petDTO.getNome());
             objetoDaLista = atualizarPet(objetoDaLista, petDTO);
