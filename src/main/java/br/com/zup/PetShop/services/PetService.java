@@ -35,7 +35,7 @@ public class PetService {
         throw new PetNaoEncontradoException("Pet não foi encontrado");
     }
 
-    public PetDTO atualizarPet(PetDTO objetoParaAtualizar, PetDTO objetoDaRequisao){
+    private PetDTO atualizarPet(PetDTO objetoParaAtualizar, PetDTO objetoDaRequisao){
         objetoParaAtualizar.setDono(objetoDaRequisao.getDono());
         objetoParaAtualizar.setIdade(objetoDaRequisao.getIdade());
         objetoParaAtualizar.setEspecie(objetoDaRequisao.getEspecie());
