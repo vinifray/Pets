@@ -32,4 +32,8 @@ public class PetController {
         return petService.pesquisarPetPeloNome(nome);
     }
 
+    @PutMapping
+    public PetDTO ataualizarOuRegistrarPet(@RequestBody @Valid PetDTO petDTO){
+        return petService.ataulizarOuAdicinarPet(petDTO);
+    }
 }

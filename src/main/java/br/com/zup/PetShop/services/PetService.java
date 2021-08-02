@@ -35,4 +35,22 @@ public class PetService {
         throw new PetNaoEncontradoException("Pet não foi encontrado");
     }
 
+    public PetDTO atualizarPet(PetDTO objetoParaAtualizar, PetDTO objetoDaRequisao){
+        objetoParaAtualizar.setDono(objetoDaRequisao.getDono());
+        objetoParaAtualizar.setIdade(objetoDaRequisao.getIdade());
+        objetoParaAtualizar.setEspecie(objetoDaRequisao.getEspecie());
+
+        return objetoParaAtualizar;
+    }
+
+    public PetDTO ataulizarOuAdicinarPet(PetDTO petDTO){
+        try{
+            PetDTO objetoDaLista = pesquisarPetPeloNome(petDTO.getNome());
+            objetoDaLista = atualizarPet(objetoDaLista, petDTO);
+            return objetoDaLista;
+        }catch (PetNaoEncontradoException e){
+            adicionarPetNaLista(petDTO);
+            return petDTO;
+        }
+    }
 }
